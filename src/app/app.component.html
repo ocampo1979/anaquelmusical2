@@ -1,20 +1,127 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+  <div class="container app">
+    <div class="row">
+      <div class="col-sm-8">
+        <h1 class="text-center">
+          {{title}}
+        </h1>
+      </div>
+      <div class="col-sm-4">
+        <div class="alert alert-success alert-dismissable" *ngIf="msg">
+          <a href="#" class="close" (click)="closeAlert()">
+              &times;
+          </a>
+          {{msg}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+          <img width="350" src="/assets/images/tornamesa.jpg">
+        </div>
+        <div class="col-sm-8">
+          <h2>Crear Registro de Disco:</h2>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="id_disco" class="control-label col-sm-2">ID Disco</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="id_disco"
+                  name="id_disco" [(ngModel)]="model.id_disco"
+                  placeholder="Ingrese un nuevo numero para el LP">
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="artista" class="control-label col-sm-2">Nombre Artista</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="artista"
+                    name="artista" [(ngModel)]="model.artista"
+                    placeholder="Ingrese el artista o grupo">
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="nombre_album" class="control-label col-sm-2">Nombre del Album</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nombre_album"
+                      name="nombre_album" [(ngModel)]="model.nombre_album"
+                      placeholder="Ingrese nombre del album">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="sello" class="control-label col-sm-2">Sello Discográfico</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="sello"
+                      name="sello" [(ngModel)]="model.sello"
+                      placeholder="Ingrese nombre del sello">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="lanzamiento" class="control-label col-sm-2">Año de Lanzamiento</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lanzamiento"
+                      name="lanzamiento" [(ngModel)]="model.lanzamiento"
+                      placeholder="Ingrese año de lanzamiento">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="precio" class="control-label col-sm-2">Valor del LP</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="precio"
+                      name="precio" [(ngModel)]="model.precio"
+                      placeholder="Ingrese valor del LP">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="cedula_coleccionista" class="control-label col-sm-2">Cedula del Coleccionista</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="cedula_coleccionista"
+                      name="cedula_coleccionista" [(ngModel)]="model.cedula_coleccionista"
+                      placeholder="Ingrese cedula del coleccionista">
+                  </div>
+              </div>
 
+              <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                  <button type="submit" class="btn btn-success" (click)="addDisco(i)">
+                    Guardar
+                  </button>
+                </div>
+              </div>
+          </form>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <h2>Registro de Discos: </h2>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ID_Disco</th>
+                  <th>Artista</th>
+                  <th>Nombre Album</th>
+                  <th>Sello</th>
+                  <th>Lanzamiento</th>
+                  <th>Precio</th>
+                  <th>Cedula Coleccionista</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let disco of discos; let i = index">
+                  <td>{{disco.id_disco}}</td>
+                  <td>{{disco.artista}}</td>
+                  <td>{{disco.nombre_album}}</td>
+                  <td>{{disco.sello}}</td>
+                  <td>{{disco.lanzamiento}}</td>
+                  <td>{{disco.precio}}</td>
+                  <td>{{disco.cedula_coleccionista}}</td>
+                  <td>
+                    <a (click)="deleteDisco(i)" class="btn btn-danger">
+                      Borrar
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+      </div>
+    </div>
