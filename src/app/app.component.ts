@@ -11,19 +11,20 @@ export class AppComponent {
   discos = [];
 
   model:any = {};
-  model2:any = {};
-    
+      
   addDisco():void{
     var answer = confirm('Estás seguro de querer agregar el LP???');
-    if(answer){
-    this.discos.push(this.model);
-    this.msg = 'Disco Agregado';
+    if(answer)
+    {
+      this.discos.push(this.model);
+      this.msg = 'Disco Agregado';
     }
   }
 
   deleteDisco(i):void{
     var answer = confirm('Estás seguro de querer borrar el LP???');
-    if(answer){
+    if(answer)
+    {
       this.discos.splice(i, 1);
       this.msg = 'Disco Eliminado';
     }
