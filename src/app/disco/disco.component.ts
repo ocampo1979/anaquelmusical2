@@ -11,6 +11,7 @@ export class DiscoComponent implements OnInit {
   constructor(private discoService: DiscoService) { }
 
   ngOnInit() {
+    this.disco = this.discoService.getDisco();
   }
 
 }
