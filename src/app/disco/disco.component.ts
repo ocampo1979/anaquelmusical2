@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DiscoService } from '../servicios/disco.service';
 
 @Component({
   selector: 'app-disco',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./disco.component.css']
 })
 export class DiscoComponent implements OnInit {
-
-  constructor() { }
+  disco: any[];
+  constructor(private discoService: DiscoService) { }
 
   ngOnInit() {
   }

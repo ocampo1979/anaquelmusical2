@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { DiscoComponent } from './disco/disco.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { DiscoService } from './servicios/disco.service';
 
 const routes: Routes = [
   {path: 'disco', component: DiscoComponent}
@@ -22,7 +23,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [DiscoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
