@@ -13,4 +13,4 @@ import { DiscoDataServerService } from './disco-data-server.service';
   declarations: [],
   providers:[DiscoDataServerService]
 })
-export class ClienteModule { }
+export class DiscoModule { }
