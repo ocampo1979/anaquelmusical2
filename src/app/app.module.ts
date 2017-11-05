@@ -6,6 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DiscoComponent } from './disco/disco.component';
 
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: 'disco', component: DiscoComponent}
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,7 +19,8 @@ import { DiscoComponent } from './disco/disco.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
