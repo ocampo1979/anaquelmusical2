@@ -1,13 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { RouterModule, Routes } from '@angular/router';
+
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DiscoComponent } from './disco/disco.component';
 
-import { RouterModule, Routes } from '@angular/router';
 import { DiscoService } from './servicios/disco.service';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 const routes: Routes = [
   {path: 'disco', component: DiscoComponent}
@@ -21,7 +25,9 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    HttpModule
   ],
   providers: [DiscoService],
   bootstrap: [AppComponent]
